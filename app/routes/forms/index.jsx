@@ -1,12 +1,14 @@
-import { useLoaderData } from "remix"
+import { Link, useLoaderData } from "remix"
+import {db} from '~/utils/db.server'
 
 //serverside loading
-export const loader = () => {
+export const loader = async () => {
     const data = {
-        forms: [
-            {id: 1, title: 'form 1', body: 'This is form 1'},
-            {id: 2, title: 'form 2', body: 'This is form 2'}
-        ]
+        forms: await db.canadaCusomsInvoice.findMany({
+            take: 30,
+            select: { id: true, shipperName: true, createdAt: true},
+            orderBy: {createdAt: 'desc'}
+        })
     }
     return data
 }
@@ -16,13 +18,18 @@ export default function Form() {
 
   return (
       <>
-        <h2>메인에서ㅋ만 보여야 하는건 여기에: 폼들 리스트</h2>
-        { forms.map(form => (
-            <div key={form.id}>
-                <p>{form.id} .{form.title}</p>
-                <p>{form.body}</p>
-            </div>
-        ))}
+        <h2>메인에서ㅋ만</h2>
+        <div className="container">
+            { forms.map(form => (
+                <Link to={form.id} className="linkCard">
+                    <div key={form.id} className="formItemCard">
+                        <p>{form.shipperName}</p>
+                        <p>{form.shipperContact}</p>
+                        <p>{new Date(form.createdAt).toLocaleString()}</p>
+                    </div>
+                </Link>
+            ))}
+        </div>
       </>
   )
 }

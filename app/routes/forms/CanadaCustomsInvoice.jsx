@@ -1,4 +1,5 @@
 import { Link, redirect } from 'remix'
+import { db } from '~/utils/db.server'
 
 export const action = async ({request}) => {
     const data = await request.formData()
@@ -8,17 +9,20 @@ export const action = async ({request}) => {
     console.log(JSON.stringify(data._fields.shipperName))
 
     const shipperName = data.get("shipperName")
+    const shipperContact = data.get("shipperContact")
 
-    console.log("Shipper Name: ", shipperName)
+    const fields = { shipperName, shipperContact}
+    // console.log("Shipper Name: ", shipperName)
 
-    //@todo - submit to database 
+    const post = await db.canadaCusomsInvoice.create({data: fields})
+    console.log("post: ", fields)
 
-    return redirect('/forms/CanadaCustomsInvoice')
+    return redirect(`/forms/${post.id}`)
 }
 
 export default function CanadaCustomsInvoice() {
   return (
-    <div>
+    <div className='form'>
         <h2>CanadaCustomsInvoice</h2>
         <form method="POST" className="form">
             <div className="form-control">
