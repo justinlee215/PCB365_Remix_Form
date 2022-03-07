@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from "remix"
-import {db} from '~/utils/db.server'
+import { db } from '~/utils/db.server'
 
 //serverside loading
 export const loader = async () => {
