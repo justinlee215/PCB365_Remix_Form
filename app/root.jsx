@@ -45,6 +45,9 @@ function Document({ children, title }) {
             </Link>
           </li>
           <li>
+            <Link to="/forms/dynamicForm">Dynamic Form</Link>
+          </li>
+          <li>
             <Link to="/forms/canadacustomsinvoice">Canada Customs Invoice</Link>
           </li>
           <li>

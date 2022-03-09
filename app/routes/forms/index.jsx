@@ -21,7 +21,7 @@ export default function Form() {
         <h2>My Forms</h2>
         <div className="cardBox">
             { forms.map(form => (
-                <Link to={form.id} >
+                <Link to={form.id} className="cardLink">
                     <div key={form.id} className="formItemCard">
                         <p>{form.shipperName}</p>
                         <p>{form.shipperContact}</p>

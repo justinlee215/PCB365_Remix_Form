@@ -214,8 +214,8 @@ fieldset {
 }
 
 .formItemCard {
-  min-width: 15rem;
-  max-width: 17rem;
+  min-width: 17rem;
+  max-width: 15rem;
   min-height: 14rem;
   padding: 1rem;
 
@@ -231,14 +231,6 @@ fieldset {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px;
 }
 
-.formDetail {
-  width: 600px;
-  height: 1200px;
-  padding: 2rem;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px;
-  margin: 2rem 0;
-}
-
 .formLine {
   padding: 1rem 0.5rem;
   color: rgb(10, 10, 10);
@@ -246,4 +238,18 @@ fieldset {
 
 .lineTitle {
   color: rgb(100, 100, 100);
+}
+
+.cardLink {
+  display: block;
+  max-width: 300px;
+  /* display: inline; */
+}
+
+.formDetail {
+  width: 600px;
+  height: 1200px;
+  padding: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px;
+  margin: 2rem 0;
 }
