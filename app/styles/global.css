@@ -1,9 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-size: 18px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
 }
 
 html {
@@ -11,10 +9,49 @@ html {
   position: relative;
   /* background-color: blueviolet; */
   width: 100%;
+
+  font-size: 18px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 a {
   color: rgb(90, 90, 90);
+}
+
+label {
+  display: inline-block;
+  width: 180px;
+  text-align: right;
+  color: rgb(63, 63, 63);
+  font-size: 1rem;
+}
+
+input {
+  padding: 0.5rem 0 0 0.3rem;
+  margin: 0.5rem 0 0 0.3rem;
+  border-radius: 3px;
+  border: 1px solid rgb(209, 209, 209);
+  font-size: 1.2rem;
+  color: rgb(63, 63, 63);
+  /* text-align: center; */
+}
+
+.button {
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  margin: 1rem 0;
+  background-color: rgb(43, 43, 231);
+  color: white;
+  transition: 0.5s ease-in-out;
+  font-size: 1rem;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: rgba(75, 8, 231, 0.925);
+  transition: 0.3s ease-in-out;
 }
 
 .container {
@@ -58,7 +95,7 @@ a {
 }
 
 .navbar {
-  background-color: lightgray;
+  background-color: rgba(245, 245, 245, 0.993);
   height: 6rem;
   display: flex;
   justify-content: space-between;
@@ -106,47 +143,53 @@ li a {
 h1 {
   font-size: 2rem;
   color: rgb(90, 90, 90);
-  padding: 3px 0px;
-  background-color: antiquewhite;
+  padding: 1rem 0px;
+  /* background-color: antiquewhite; */
 }
 
 h2 {
   font-size: 1.7rem;
   color: rgb(90, 90, 90);
-  padding: 3px 0px;
-  background-color: azure;
+  padding: 1rem 0px;
+  /* background-color: azure; */
+}
+
+section {
+  margin: 1rem;
+  padding: 2rem;
+}
+
+fieldset {
+  position: relative;
+  padding: 1rem;
+  color: rgb(63, 63, 63);
+  border-radius: 5px;
+  border: 1px solid rgb(233, 232, 232);
+}
+
+.fieldsetLegend {
+  /* position: absolute; */
+  margin-left: 0.3rem;
+}
+
+.sectionNum {
+  padding: 0 0.5rem;
 }
 
 .main {
-  padding: 2rem 0rem;
   max-width: 1200px;
   margin: 0 auto;
-  /* padding: 1rem 3rem; */
-  background-color: lightsalmon;
+  /* background-color: lightcoral; */
+  padding-bottom: 1rem;
 }
 
 .form {
-  background-color: lightcoral;
-}
-
-.formItemCard {
-  background-color: aqua;
-  min-width: 15rem;
-  max-width: 15rem;
-  min-height: 10rem;
-  margin: 1rem;
-  padding: 1rem;
-}
-
-.linkCard {
-  background-color: aquamarine;
-  display: block;
-  width: 17rem;
+  /* background-color: lightcoral; */
 }
 
 .footer {
-  margin: 1rem 0 0 0;
-  padding: 0rem;
+  margin: 10rem 0 0 0;
+  padding: 2rem;
   background-color: rgba(245, 245, 245, 0.993);
   display: flex;
   align-items: center;
@@ -158,4 +201,49 @@ h2 {
   position: absolute;
   left: 0;
   bottom: 0;
+}
+
+.cardBox {
+  /* background-color: lightgreen; */
+  columns: 370px;
+  break-inside: avoid;
+  padding: 2rem;
+  margin: auto;
+  /* height: 100vh; */
+  /* width: 95%; */
+}
+
+.formItemCard {
+  min-width: 15rem;
+  max-width: 17rem;
+  min-height: 14rem;
+  padding: 1rem;
+
+  list-style-type: none;
+
+  display: grid;
+  grid-template-columns: 1fr;
+
+  break-inside: avoid;
+
+  margin: 0px 1px 40px 1px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px;
+}
+
+.formDetail {
+  width: 600px;
+  height: 1200px;
+  padding: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px;
+  margin: 2rem 0;
+}
+
+.formLine {
+  padding: 1rem 0.5rem;
+  color: rgb(10, 10, 10);
+}
+
+.lineTitle {
+  color: rgb(100, 100, 100);
 }

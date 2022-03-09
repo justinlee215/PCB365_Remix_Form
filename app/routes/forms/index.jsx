@@ -18,10 +18,10 @@ export default function Form() {
 
   return (
       <>
-        <h2>메인에서ㅋ만</h2>
-        <div className="container">
+        <h2>My Forms</h2>
+        <div className="cardBox">
             { forms.map(form => (
-                <Link to={form.id} className="linkCard">
+                <Link to={form.id} >
                     <div key={form.id} className="formItemCard">
                         <p>{form.shipperName}</p>
                         <p>{form.shipperContact}</p>

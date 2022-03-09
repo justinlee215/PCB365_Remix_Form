@@ -38,12 +38,24 @@ export default function FormItem() {
 
   return (
     <div>
-        <h1>Form {data.shipperName} 각각 다른 폼 하나 하나</h1>
-        <p>{data.shipperContact}</p>
+        <h2>Form Detail: {data.shipperName} </h2>
+        <div className="formDetail">
+          <div className='formLine'><span className='lineTitle'>Shipper Name: </span>{data.shipperName}</div>
+          <div className='formLine'><span className='lineTitle'>Shipper Contact: </span>{data.shipperContact}</div>
+          <div className='formLine'><span className='lineTitle'>Shipper Phone: </span>{data.shipperPhone}</div>
+          <div className='formLine'><span className='lineTitle'>Shipper Address: </span>{data.shipperAddress}</div>
+          <br/>
+          <div className='formLine'><span className='lineTitle'>Exporter Name: </span></div>
+          <div className='formLine'><span className='lineTitle'>Exporter Contact: </span></div>
+          <div className='formLine'><span className='lineTitle'>Exporter Phone: </span></div>
+          <div className='formLine'><span className='lineTitle'>Exporter Address: </span></div>
+          
+
+        </div>
         <div>
           <form method="POST">
             <input type="hidden" name="_method" value="delete"/>
-            <button>Delete</button>  
+            <button className='button' style={{ backgroundColor: "rgb(231, 43, 74)"}}>Delete</button>  
           </form>
         </div>
         <Link to="/forms">Back</Link>

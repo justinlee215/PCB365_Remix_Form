@@ -41,7 +41,7 @@ function Document({ children, title }) {
         <ul className="nav">
           <li>
             <Link to="/forms">
-              Forms 
+              My Forms
             </Link>
           </li>
           <li>
@@ -52,8 +52,8 @@ function Document({ children, title }) {
           </li>
         </ul>
       </nav>
-      <div className="main">
       <div className="blueBackgroundImage"><img src="/images/blueBackground.jpg" alt="pcb current site Logo link"/></div>
+      <div className="main">
       { children }
       
       { process.env.NODE_ENV == 'development' ? 
