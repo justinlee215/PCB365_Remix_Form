@@ -1,8 +1,9 @@
 
 import { Outlet, LiveReload, Link, Links, Meta } from 'remix'
+
 import globalStyles from '~/styles/global.css'
 
-export const links = () => [{ rel: 'stylesheet', href: globalStyles }]
+export const links = () => [{ rel: 'stylesheet', href: globalStyles }, {rel: 'icon', type: 'image/x-icon', href: "/favicon.png"}]
 
 export const meta = () => {
   return {
@@ -14,9 +15,7 @@ export const meta = () => {
 export default function App() {
   return (
     <Document>
-      <Layout>
         <Outlet />
-      </Layout>
     </Document>
   );
 }
@@ -28,39 +27,22 @@ function Document({ children, title }) {
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{title ? title : "My First Remix"}</title>
+        <title>{title ? title : "PCB365"}</title>
+
         <Meta />
         <Links />
       </head>
+      <div className='container'>
       <body>
-        { children }
-        { process.env.NODE_ENV == 'development' ? 
-        <LiveReload /> : null }
-      </body>
-    </html>
-  )
-}
-
-function Layout({ children }) {
-  return (
-    <>
-      <nav className="navbar">
-        <Link to="/" className="logo">
-          PCB365
+        <nav className="navbar">
+        <Link to="/">
+          <img src="/images/pcb365.png" alt="pcb 365 logo" width="200" />
         </Link>
         <ul className="nav">
           <li>
             <Link to="/forms">
               Forms 
             </Link>
-          </li>
-          <li>
-            <label>Select:</label>
-            <select name="forms" id="">Forms
-              <option value=""><Link to="/forms/canadacustomsinvoice">Canada Customs Invoice</Link></option>
-              <option value=""><Link to="/forms/uscustomsinvoice">US Customs Invoice</Link></option>
-
-            </select>
           </li>
           <li>
             <Link to="/forms/canadacustomsinvoice">Canada Customs Invoice</Link>
@@ -71,21 +53,31 @@ function Layout({ children }) {
         </ul>
       </nav>
       <div className="main">
-        { children }
+      <div className="blueBackgroundImage"><img src="/images/blueBackground.jpg" alt="pcb current site Logo link"/></div>
+      { children }
+      
+      { process.env.NODE_ENV == 'development' ? 
+      <LiveReload /> : null }
+        
       </div>
-    </>
+      </body>
+      <div className="footer">
+        <Link to="/"><div className="logo"><img src="/images/pcb365.png" alt="pcb current site "/></div></Link>
+      </div>
+      </div>
+    </html>
   )
 }
+
+
 
 export function ErrorBoundary({error}) {
     console.log(error)
     return (
         <>
           <Document>
-            <Layout>
               <h1>Error</h1>
               <p>{error.message}</p>
-            </Layout>
           </Document>
         </>
     )
